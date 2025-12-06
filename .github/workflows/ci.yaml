@@ -2,7 +2,9 @@ name: CI Pipeline
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "ci-workflow"]
+    tags:
+      - "v*"
   pull_request:
 
 jobs:
@@ -49,6 +51,3 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
-        
-
